@@ -12,3 +12,11 @@ export function getClasses(subjectId) {
 export function createTest(body) {
     return axios.post(`${BASE_URL}/tests`, body);
 }
+
+export function getTestsOptions(searchBy) {
+    return axios.get(`${BASE_URL}/${searchBy}s`);
+}
+
+export function getTests({ searchBy, id }) {
+    return axios.get(`${BASE_URL}/tests/${searchBy}/${id}`);
+}
