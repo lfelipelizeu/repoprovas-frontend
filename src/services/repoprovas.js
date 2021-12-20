@@ -16,3 +16,7 @@ export function createTest(body) {
 export function getTestsOptions(searchBy) {
     return axios.get(`${BASE_URL}/${searchBy}s`);
 }
+
+export function getTests({ searchBy, id }) {
+    return axios.get(`${BASE_URL}/tests/${searchBy}/${id}`);
+}
