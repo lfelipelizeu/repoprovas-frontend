@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE_URL = 'http://localhost:4000';
+const BASE_URL = 'https://repoprovas-app.herokuapp.com';
 
 export function getSubjects() {
     return axios.get(`${BASE_URL}/subjects`);
