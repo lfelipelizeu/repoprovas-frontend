@@ -1,13 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
-
     * {
         box-sizing: border-box;
         transition: all ease .2s;
+        font-family: 'Roboto', sans-serif;
     }
 
     html,
