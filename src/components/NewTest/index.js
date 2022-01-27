@@ -53,6 +53,7 @@ export default function NewTest() {
                     max={(new Date()).getFullYear()}
                     value={year}
                     onChange={(event) => setYear(event.target.value)}
+                    required
                 />
             </div>
             <Semesters setSemester={setSemester} />
