@@ -5,22 +5,22 @@ import Select from '../Select';
 import Label from './Label';
 
 export default function Subjects({ setSubject, disable }) {
-    const [subjectsList, setSubjectsList] = useState([]);
+    const [subjectsList, setSubjectsList] = useState(null);
 
     useEffect(() => {
         getSubjects()
             .then((response) => setSubjectsList(response.data))
             .catch((error) => alert(error.message));
-    });
+    }, []);
 
     return (
         <div>
             <Label htmlFor='subjects'>
                 Matéria:
             </Label>
-            <Select id='subjects' onChange={(event) => setSubject(event.target.value)} disabled={disable}>
+            <Select id='subjects' onChange={(event) => setSubject(event.target.value)} disabled={disable || !subjectsList}>
                 <option defaultValue hidden>Disciplina</option>
-                {subjectsList.map((subject, index) => <option key={index} value={subject.id}>{subject.name}</option>)}
+                {subjectsList?.map((subject, index) => <option key={index} value={subject.id}>{subject.name}</option>)}
             </Select>
         </div>
     );

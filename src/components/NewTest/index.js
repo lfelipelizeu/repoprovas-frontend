@@ -59,8 +59,8 @@ export default function NewTest() {
             <Categories setCategory={setCategory} disable={!semester} />
             <Subjects setSubject={setSubject} disable={!category} />
             {subject && <Professors setClassOption={setClassOption} subjectId={subject} />}
-            {classOption && <Input type='text' placeholder='Link da prova' value={link} onChange={(event) => setLink(event.target.value)} />}
-            {link && <Button type='submit'>ENVIAR</Button>}
+            {classOption && <Input type='text' placeholder='Link da prova' onChange={(event) => setLink(event.target.value)} />}
+            {link && classOption && <Button type='submit'>ENVIAR</Button>}
         </Form>
     );
 }
