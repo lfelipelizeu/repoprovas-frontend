@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import NewTest from './components/NewTest/NewTest.js';
+import NewTest from './pages/NewTest';
 import ViewTestsOptions from './components/ViewTestsOptions.js';
 import TestsList from './components/TestsList.js';
 

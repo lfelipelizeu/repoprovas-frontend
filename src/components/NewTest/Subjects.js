@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { getSubjects } from '../../services/repoprovas.js';
 
+import Select from '../Select';
+import Label from './Label';
+
 export default function Subjects({ setSubject, disable }) {
     const [subjectsList, setSubjectsList] = useState([]);
 
@@ -11,9 +14,14 @@ export default function Subjects({ setSubject, disable }) {
     });
 
     return (
-        <select onChange={(event) => setSubject(event.target.value)} disabled={disable}>
-            <option defaultValue hidden>Disciplina</option>
-            {subjectsList.map((subject, index) => <option key={index} value={subject.id}>{subject.name}</option>)}
-        </select>
+        <div>
+            <Label htmlFor='subjects'>
+                Matéria:
+            </Label>
+            <Select id='subjects' onChange={(event) => setSubject(event.target.value)} disabled={disable}>
+                <option defaultValue hidden>Disciplina</option>
+                {subjectsList.map((subject, index) => <option key={index} value={subject.id}>{subject.name}</option>)}
+            </Select>
+        </div>
     );
 }

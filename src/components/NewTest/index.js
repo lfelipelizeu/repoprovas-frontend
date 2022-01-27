@@ -1,9 +1,15 @@
+import styled from 'styled-components';
 import { useState } from 'react';
 import Categories from './Categories.js';
 import Subjects from './Subjects.js';
 import Professors from './Professors.js';
+import Semesters from './Semester';
 import { createTest } from '../../services/repoprovas.js';
 import { useNavigate } from 'react-router-dom';
+
+import Label from './Label';
+import Input from '../Input';
+import Button from '../Button';
 
 export default function NewTest() {
     const [year, setYear] = useState(2000);
@@ -34,46 +40,34 @@ export default function NewTest() {
     }
 
     return (
-        <form onSubmit={sendTest}>
-            <input
-                type='number'
-                placeholder='Ano'
-                min={2000}
-                max={(new Date()).getFullYear()}
-                value={year}
-                onChange={(event) => setYear(event.target.value)}
-            />
+        <Form onSubmit={sendTest}>
+            <div>
+                <Label htmlFor='year'>
+                    Ano da prova:
+                </Label>
+                <Input
+                    type='number'
+                    placeholder='Ano'
+                    id='year'
+                    min={2000}
+                    max={(new Date()).getFullYear()}
+                    value={year}
+                    onChange={(event) => setYear(event.target.value)}
+                />
+            </div>
             <Semesters setSemester={setSemester} />
             <Categories setCategory={setCategory} disable={!semester} />
             <Subjects setSubject={setSubject} disable={!category} />
-            {subject ? <Professors setClassOption={setClassOption} subjectId={subject} /> : null}
-            {classOption ? <input type='text' placeholder='Link da prova' value={link} onChange={(event) => setLink(event.target.value)} /> : null}
-            {link ? <button type='submit'>Enviar prova</button> : null}
-        </form>
+            {subject && <Professors setClassOption={setClassOption} subjectId={subject} />}
+            {classOption && <Input type='text' placeholder='Link da prova' value={link} onChange={(event) => setLink(event.target.value)} />}
+            {link && <Button type='submit'>ENVIAR</Button>}
+        </Form>
     );
 }
 
-function Semesters({ setSemester }) {
-    return (
-        <div onChange={(event) => setSemester(event.target.value)}>
-            <input
-                type='radio'
-                id='first'
-                name='semester'
-                value={1}
-            />
-            <label htmlFor='first'>
-                1° Semestre
-            </label>
-            <input
-                type='radio'
-                id='second'
-                name='semester'
-                value={2}
-            />
-            <label htmlFor='second'>
-                2° Semestre
-            </label>
-        </div>
-    );
-}
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 30px;
+`;
