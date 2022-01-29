@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import NewTest from './pages/NewTest';
-import ViewTestsOptions from './components/ViewTestsOptions.js';
-import TestsList from './components/TestsList.js';
+import ChooseOption from './pages/SearchTest/ChooseOption';
+import TestsList from './pages/SearchTest/TestList';
 
 import GlobalStyle from './styles/GlobalStyle';
 import MainContainer from './components/MainContainer';
@@ -13,10 +13,12 @@ function App() {
     <GlobalStyle />
       <MainContainer>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/new' element={<NewTest />} />
-          <Route path='/search' element={<ViewTestsOptions />} />
-          <Route path='tests/:id' element={<TestsList />} />
+          <Route index element={<Home />} />
+          <Route path='new' element={<NewTest />} />
+          <Route path='search'>
+            <Route index element={<ChooseOption />} />
+            <Route path='tests/:id' element={<TestsList />} />
+          </Route>
         </Routes>
       </MainContainer>
     </BrowserRouter>);
