@@ -1,25 +1,52 @@
-# repoprovas
 
-## About
-In this app students can upload graduation tests pdf links to other students to see!\
-\
-This app was already deployed, click [here](https://repoprovas-frontend-two.vercel.app/) to use the app!\
-This app uses a deployed API, so you don't need to download anything to use this app! But if you want to see the backend of this app, access it [here](https://github.com/lfelipelizeu/repoprovas-backend).
+# Repoprovas
 
-## Tools
-This API was made using NodeJS, Typescript and Postgres, with some libs like [express](https://www.npmjs.com/package/express), [pg](https://www.npmjs.com/package/pg) and [typeorm](https://www.npmjs.com/package/typeorm).
+Este projeto é a ideia de um repositório onde os estudantes podem cadastrar provas antigas de alguma matéria para que os outros estudantes possam consultá-las!
 
-## Preparing
-First, you need to have npm installed!\
-\
-Then, clone this repository to your computer: 
-#### `git clone https://github.com/lfelipelizeu/repoprovas-frontend`
-\
-Now to install the dependencies, access the cloned folder by the terminal and use:
-#### `npm i`
-\
-If you don't want to use the deployed API, change the constant `BASE_URL` at [`src/services/repoprovas.js`](https://github.com/lfelipelizeu/repoprovas-frontend/blob/main/src/services/repoprovas.js) to your API link.
+Você pode acessar o site com o aplicativo funcionando [aqui](https://repoprovas-frontend-two.vercel.app/).
 
-## Running
-Now the only thing you need to do is to start the application by using:
-#### `npm start`
+
+## Conteúdo
+- [Stack utilizada](#stack-utilizada)
+- [Relacionados](#relacionados)
+- [Rodando localmente](#rodando-localmente)
+
+## Stack utilizada
+
+- React
+
+
+## Relacionados
+
+[Backend](https://github.com/lfelipelizeu/repoprovas-backend)
+
+
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+git clone https://github.com/lfelipelizeu/repoprovas-frontend
+```
+
+Entre no diretório do projeto
+
+```bash
+cd repoprovas-frontend
+```
+
+Instale as dependências
+
+```bash
+npm install
+```
+
+Para a aplicação funcionar completamente, você também precisa baixar o backend [aqui](https://github.com/lfelipelizeu/repoprovas-backend).\
+Após configurar o backend, altere a constante `BASE_URL` [neste arquivo](https://github.com/lfelipelizeu/repoprovas-frontend/blob/main/src/services/repoprovas.js) para o endereço que você está rodadando seu próprio backend!
+
+Inicie a aplicação
+
+```bash
+npm run start
+```
+
